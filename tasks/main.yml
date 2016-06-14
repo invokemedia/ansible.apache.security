@@ -1,0 +1,18 @@
+---
+- name: Apache Server Signature
+  lineinfile:
+    dest: "{{ apache_server_root }}/conf-available/security.conf"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items: apache_server_signature_configuration
+  notify: restart apache
+
+- name: Apache Server Token
+  lineinfile:
+    dest: "{{ apache_server_root }}/conf-available/security.conf"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items: apache_server_token_configuration
+  notify: restart apache

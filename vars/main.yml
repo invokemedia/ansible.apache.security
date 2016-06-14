@@ -1,0 +1,11 @@
+apache_server_signature_configuration:
+  - {
+    regexp: "^ServerSignature ",
+    line: "ServerSignature {{ apache_server_signature }}"
+  }
+
+apache_server_token_configuration:
+  - {
+    regexp: "^ServerTokens ",
+    line: "ServerTokens {{ apache_server_token }}"
+  }
